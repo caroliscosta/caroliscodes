@@ -1,0 +1,110 @@
+
+
+import java.util.Scanner;
+
+public class Impostos {
+    public static void main(String[] args) { 
+    Scanner cliente = new Scanner (System.in);
+
+    String nome;
+    char relatorio, opcaoBoni;
+    double qtdadeComprada, mediaBoni, compradosBoni, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
+    double totalImpostoboni, totalBoni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
+    
+System.out.println("----------------------------------");
+System.out.println("------------BEM-VINDO-------------");
+System.out.println("----------------=D----------------");
+System.out.println("----------------------------------"); 
+
+    //entrada//
+
+System.out.println("Digite o nome do cliente: ");
+nome = cliente.nextLine();
+System.out.println("Digite a quantidade comprada: ");
+qtdadeComprada = cliente.nextDouble();
+System.out.println("Deseja imprimir o relatório completo? S/N ");
+relatorio = cliente.next().charAt(0);
+    
+    valorunitario = 4.5;
+    calcularTotal = valorunitario * qtdadeComprada;
+    calcularCofins = calcularTotal * 0.0854;
+    calcularIcms = calcularTotal * 0.18;
+    calcularIpi = calcularTotal * 0.04;
+    calcularPis = calcularTotal * 0.0186;
+    totalImposto = calcularCofins + calcularIpi + calcularPis + calcularCofins + calcularIcms;
+    calcularTotalboni = calcularTotal - (calcularTotal * 0.15);
+    totalBoni = totalImpostoboni + calcularTotalboni; 
+    calcularCofinsboni = calcularTotalboni * 0.0854;
+    calcularIcmsboni = calcularTotalboni * 0.18;
+    calcularIpiboni = calcularTotalboni * 0.04;
+    calcularPisboni = calcularTotalboni * 0.0186;
+    totalImpostoboni = calcularCofinsboni + calcularIpiboni + calcularPisboni + calcularCofinsboni + calcularIcmsboni;
+    total = totalImposto + calcularTotal; 
+    mediaBoni = compradosBoni / 3;
+    
+
+//saida//
+
+if (relatorio == 'S'|relatorio == 's'){  
+    System.out.println("Nome: " + nome);
+    System.out.println("ICMS: R$ " + calcularIcms);
+    System.out.println("IPI: R$ " + calcularIpi);
+    System.out.println("PIS: R$ " + calcularPis);
+    System.out.println("COFINS: R$ " + calcularCofins);
+    System.out.println("TOTAL Imposto: R$ " + totalImposto);
+    System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
+    System.out.println("TOTAL: R$ " + total);
+}
+else if (relatorio == 'N'|relatorio == 'n') {
+    System.out.println("TOTAL Imposto: R$ " + totalImposto);
+    System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
+    System.out.println("TOTAL: R$ " + total);
+}
+else {
+    System.out.println("OPÇÃO INVÁLIDA!");
+}
+
+//inserir retorno para opção//
+
+System.out.println("Deseja iniciar o cálculo de bonificação? S/N ");
+opcaoBoni = cliente.next().charAt(0);
+
+System.out.println("----------------------------------");
+System.out.println("----------------------------------");
+System.out.println("----------------------------------");
+System.out.println("----------------------------------");
+    
+    if (opcaoBoni == 'S'|opcaoBoni == 's'){  
+    System.out.println("Digite a quantidade total de produtos comprados nos últimos três meses: ");
+    compradosBoni = cliente.nextDouble();
+    
+    
+    }
+    if (mediaBoni >= qtdadeComprada + (qtdadeComprada * 0.015)){
+    System.out.println("Este cliente possui um desconto de 15%!");
+    System.out.println("----------------------------------");
+    System.out.println("-----------ATENÇÃO!!!-------------");
+    System.out.println("-------VALORES ATUALIZADOS--------");
+    System.out.println("----------------------------------");
+    System.out.println("Nome: " + nome);
+    System.out.println("ICMS: R$ " + calcularIcmsboni);
+    System.out.println("IPI: R$ " + calcularIpiboni);
+    System.out.println("PIS: R$ " + calcularPisboni);
+    System.out.println("COFINS: R$ " + calcularCofinsboni);
+    System.out.println("TOTAL Imposto: R$ " + totalImpostoboni);
+    System.out.println("TOTAL Mercadoria Bonificada: R$ " + calcularTotalboni);
+    //    System.out.println("TOTAL Bonificação: R$ " + total - totalBoni); //
+    System.out.println("TOTAL: R$ " + totalBoni);
+    }
+else { 
+System.out.println("Este cliente não possui bonificação disponível!");
+}
+ 
+System.out.println("----------------------------------");
+System.out.println("--------------BYE BYE-------------");
+System.out.println("---------------=D-----------------");
+System.out.println("----------------------------------");
+
+}
+
+}
