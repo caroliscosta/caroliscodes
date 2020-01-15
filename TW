@@ -40,7 +40,7 @@ relatorio = cliente.next().charAt(0);
     calcularPisboni = calcularTotalboni * 0.0186;
     totalImpostoboni = calcularCofinsboni + calcularIpiboni + calcularPisboni + calcularCofinsboni + calcularIcmsboni;
     total = totalImposto + calcularTotal; 
-    mediaBoni = compradosBoni / 3;
+    
     
 
 //saida//
@@ -73,14 +73,21 @@ System.out.println("----------------------------------");
 System.out.println("----------------------------------");
 System.out.println("----------------------------------");
 System.out.println("----------------------------------");
-    
+
+
     if (opcaoBoni == 'S'|opcaoBoni == 's'){  
     System.out.println("Digite a quantidade total de produtos comprados nos últimos três meses: ");
     compradosBoni = cliente.nextDouble();
-    
-    
     }
-    if (mediaBoni >= qtdadeComprada + (qtdadeComprada * 0.015)){
+    else {
+    System.out.println("----------------------------------");
+    System.out.println("--------------BYE BYE-------------");
+    System.out.println("---------------=D-----------------");
+    System.out.println("----------------------------------");
+        
+    }
+
+    if (compradosboni / 3 >= qtdadeComprada + (qtdadeComprada * 0.015)){
     System.out.println("Este cliente possui um desconto de 15%!");
     System.out.println("----------------------------------");
     System.out.println("-----------ATENÇÃO!!!-------------");
