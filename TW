@@ -87,7 +87,7 @@ System.out.println("----------------------------------");
         
     }
 
-    if (compradosBoni / 3 >= (qtdadeComprada + (qtdadeComprada * 0.015))){
+    if ((compradosBoni / 3 ) <= (qtdadeComprada + (qtdadeComprada * 0.015))){
     System.out.println("Este cliente possui um desconto de 15%!");
     System.out.println("----------------------------------");
     System.out.println("-----------ATENÇÃO!!!-------------");
