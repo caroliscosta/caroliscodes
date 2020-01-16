@@ -1,15 +1,15 @@
-
-
 import java.util.Scanner;
 
-public class Impostos {
+public class Main {
     public static void main(String[] args) { 
     Scanner cliente = new Scanner (System.in);
 
     String nome;
     char relatorio, opcaoBoni;
-    double qtdadeComprada, mediaBoni, compradosBoni, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
-    double totalImpostoboni, totalBoni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
+    double qtdadeComprada, mediaBoni, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
+    double totalBoni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
+    double totalImpostoboni;
+    double compradosBoni;
     
 System.out.println("----------------------------------");
 System.out.println("------------BEM-VINDO-------------");
@@ -33,15 +33,14 @@ relatorio = cliente.next().charAt(0);
     calcularPis = calcularTotal * 0.0186;
     totalImposto = calcularCofins + calcularIpi + calcularPis + calcularCofins + calcularIcms;
     calcularTotalboni = calcularTotal - (calcularTotal * 0.15);
-    totalBoni = totalImpostoboni + calcularTotalboni; 
     calcularCofinsboni = calcularTotalboni * 0.0854;
     calcularIcmsboni = calcularTotalboni * 0.18;
     calcularIpiboni = calcularTotalboni * 0.04;
     calcularPisboni = calcularTotalboni * 0.0186;
     totalImpostoboni = calcularCofinsboni + calcularIpiboni + calcularPisboni + calcularCofinsboni + calcularIcmsboni;
     total = totalImposto + calcularTotal; 
-    
-    
+    totalBoni = totalImpostoboni + calcularTotalboni; 
+    compradosBoni = 0;
 
 //saida//
 
@@ -66,6 +65,7 @@ else {
 
 //inserir retorno para opção//
 
+
 System.out.println("Deseja iniciar o cálculo de bonificação? S/N ");
 opcaoBoni = cliente.next().charAt(0);
 
@@ -87,7 +87,7 @@ System.out.println("----------------------------------");
         
     }
 
-    if (compradosboni / 3 >= qtdadeComprada + (qtdadeComprada * 0.015)){
+    if (compradosBoni / 3 >= (qtdadeComprada + (qtdadeComprada * 0.015))){
     System.out.println("Este cliente possui um desconto de 15%!");
     System.out.println("----------------------------------");
     System.out.println("-----------ATENÇÃO!!!-------------");
