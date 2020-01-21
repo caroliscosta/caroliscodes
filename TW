@@ -5,12 +5,12 @@ public class Main {
     Scanner cliente = new Scanner (System.in);
 
     String nome;
-    char relatorio, relatorio2, opcaoBoni;
-    double qtdadeComprada, mediaBoni, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
+    char relatorio, opcaoBoni;
+    double qtdadeComprada, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
     double totalBoni, boni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
     double totalImpostoboni;
-    float compradosBoni;
-    
+    float compradosBoni, mediaBoni;
+ 
     
 System.out.println("----------------------------------");
 System.out.println("------------BEM-VINDO-------------");
@@ -23,8 +23,6 @@ System.out.println("Digite o nome do cliente: ");
 nome = cliente.nextLine();
 System.out.println("Digite a quantidade comprada: ");
 qtdadeComprada = cliente.nextDouble();
-System.out.println("Digite a quantidade total de produtos comprados nos últimos três meses: ");
-compradosBoni = cliente.nextFloat();
 System.out.println("Deseja imprimir o relatório completo? S/N ");
 relatorio = cliente.next().charAt(0);
     
@@ -44,7 +42,7 @@ relatorio = cliente.next().charAt(0);
     totalImpostoboni = calcularCofinsboni + calcularIpiboni + calcularPisboni + calcularCofinsboni + calcularIcmsboni;
     total = totalImposto + calcularTotal; 
     totalBoni = totalImpostoboni + (calcularTotal - boni); 
- 
+
 
 //saida//
 
@@ -64,8 +62,8 @@ else if (relatorio == 'N'|relatorio == 'n') {
     System.out.println("TOTAL: R$ " + total);
 }
 else {
-    System.out.println("OPÇÃO INVÁLIDA! Digite novamente a opção (S/N)");
-    relatorio2 = cliente.next().charAt(0);
+    System.out.println("OPÇÃO INVÁLIDA! Digite novamente a opção (S/N): ");
+    relatorio = cliente.next().charAt(0);
 }
 if (relatorio == 'S'|relatorio == 's'){  
     System.out.println("Nome: " + nome);
@@ -82,21 +80,27 @@ else if (relatorio == 'N'|relatorio == 'n') {
     System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
     System.out.println("TOTAL: R$ " + total);
 }
-
+else {
+    System.out.println("----------------------------------");
+    System.out.println("--------------BYE BYE-------------");
+    System.out.println("---------------=D-----------------");
+    System.out.println("----------------------------------");
+    
+}
 //calculo da bonificação//
 //se a quantidade comprada pelo cliente for 15%
 //a maior do que a média comprada nos últimos 3 meses, o cliente receberá um desconto de 15%//
 
-System.out.println("Digite S para o cálculo da bonificação ou N para sair ");
+System.out.println("Digite S para o cálculo da bonificação ou qualquer tecla para sair: ");
 opcaoBoni = cliente.next().charAt(0);
 
-
     if (opcaoBoni == 'S'|opcaoBoni == 's'){ 
-          
-    if ((compradosBoni / 3) >= (qtdadeComprada + (qtdadeComprada * 0.015))){
-    System.out.println("Este cliente não possui bonificação disponível!");
-    }
-   else { 
+System.out.println("Digite a quantidade total de produtos comprados nos últimos três meses: ");
+compradosBoni = cliente.nextFloat();
+
+    mediaBoni = (compradosBoni / 3);
+    
+    if (qtdadeComprada >= (mediaBoni + (mediaBoni * 0.15))){
     System.out.println("Este cliente possui um desconto de 15%!");
     System.out.println("----------------------------------");
     System.out.println("-----------ATENÇÃO!!!-------------");
@@ -110,22 +114,27 @@ opcaoBoni = cliente.next().charAt(0);
     System.out.println("TOTAL Imposto: R$ " + totalImpostoboni);
     System.out.println("TOTAL Bonificação: R$ " + boni);
     System.out.println("TOTAL: R$ " + totalBoni);
-   }
-    }
-         else {
+    
+        
     System.out.println("----------------------------------");
     System.out.println("--------------BYE BYE-------------");
     System.out.println("---------------=D-----------------");
     System.out.println("----------------------------------");
-        
     }
- 
-
-System.out.println("----------------------------------");
-System.out.println("--------------BYE BYE-------------");
-System.out.println("---------------=D-----------------");
-System.out.println("----------------------------------");
-
+   else { 
+    System.out.println("Este cliente não possui bonificação disponível!");
+    
+    System.out.println("----------------------------------");
+    System.out.println("--------------BYE BYE-------------");
+    System.out.println("---------------=D-----------------");
+    System.out.println("----------------------------------");
 }
-
+    }
+    else {
+    System.out.println("----------------------------------");
+    System.out.println("--------------BYE BYE-------------");
+    System.out.println("---------------=D-----------------");
+    System.out.println("----------------------------------");
+    }
+}
 }
