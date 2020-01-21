@@ -5,11 +5,12 @@ public class Main {
     Scanner cliente = new Scanner (System.in);
 
     String nome;
-    char relatorio, opcaoBoni;
+    char relatorio, relatorio2, opcaoBoni;
     double qtdadeComprada, mediaBoni, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
-    double totalBoni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
+    double totalBoni, boni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
     double totalImpostoboni;
-    double compradosBoni;
+    float compradosBoni;
+    
     
 System.out.println("----------------------------------");
 System.out.println("------------BEM-VINDO-------------");
@@ -22,6 +23,8 @@ System.out.println("Digite o nome do cliente: ");
 nome = cliente.nextLine();
 System.out.println("Digite a quantidade comprada: ");
 qtdadeComprada = cliente.nextDouble();
+System.out.println("Digite a quantidade total de produtos comprados nos últimos três meses: ");
+compradosBoni = cliente.nextFloat();
 System.out.println("Deseja imprimir o relatório completo? S/N ");
 relatorio = cliente.next().charAt(0);
     
@@ -33,14 +36,15 @@ relatorio = cliente.next().charAt(0);
     calcularPis = calcularTotal * 0.0186;
     totalImposto = calcularCofins + calcularIpi + calcularPis + calcularCofins + calcularIcms;
     calcularTotalboni = calcularTotal - (calcularTotal * 0.15);
+    boni = calcularTotal * 0.15;
     calcularCofinsboni = calcularTotalboni * 0.0854;
     calcularIcmsboni = calcularTotalboni * 0.18;
     calcularIpiboni = calcularTotalboni * 0.04;
     calcularPisboni = calcularTotalboni * 0.0186;
     totalImpostoboni = calcularCofinsboni + calcularIpiboni + calcularPisboni + calcularCofinsboni + calcularIcmsboni;
     total = totalImposto + calcularTotal; 
-    totalBoni = totalImpostoboni + calcularTotalboni; 
-    compradosBoni = 0;
+    totalBoni = totalImpostoboni + (calcularTotal - boni); 
+ 
 
 //saida//
 
@@ -60,34 +64,39 @@ else if (relatorio == 'N'|relatorio == 'n') {
     System.out.println("TOTAL: R$ " + total);
 }
 else {
-    System.out.println("OPÇÃO INVÁLIDA!");
+    System.out.println("OPÇÃO INVÁLIDA! Digite novamente a opção (S/N)");
+    relatorio2 = cliente.next().charAt(0);
+}
+if (relatorio == 'S'|relatorio == 's'){  
+    System.out.println("Nome: " + nome);
+    System.out.println("ICMS: R$ " + calcularIcms);
+    System.out.println("IPI: R$ " + calcularIpi);
+    System.out.println("PIS: R$ " + calcularPis);
+    System.out.println("COFINS: R$ " + calcularCofins);
+    System.out.println("TOTAL Imposto: R$ " + totalImposto);
+    System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
+    System.out.println("TOTAL: R$ " + total);
+}
+else if (relatorio == 'N'|relatorio == 'n') {
+    System.out.println("TOTAL Imposto: R$ " + totalImposto);
+    System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
+    System.out.println("TOTAL: R$ " + total);
 }
 
-//inserir retorno para opção//
+//calculo da bonificação//
+//se a quantidade comprada pelo cliente for 15%
+//a maior do que a média comprada nos últimos 3 meses, o cliente receberá um desconto de 15%//
 
-
-System.out.println("Deseja iniciar o cálculo de bonificação? S/N ");
+System.out.println("Digite S para o cálculo da bonificação ou N para sair ");
 opcaoBoni = cliente.next().charAt(0);
 
-System.out.println("----------------------------------");
-System.out.println("----------------------------------");
-System.out.println("----------------------------------");
-System.out.println("----------------------------------");
 
-
-    if (opcaoBoni == 'S'|opcaoBoni == 's'){  
-    System.out.println("Digite a quantidade total de produtos comprados nos últimos três meses: ");
-    compradosBoni = cliente.nextDouble();
+    if (opcaoBoni == 'S'|opcaoBoni == 's'){ 
+          
+    if ((compradosBoni / 3) >= (qtdadeComprada + (qtdadeComprada * 0.015))){
+    System.out.println("Este cliente não possui bonificação disponível!");
     }
-    else {
-    System.out.println("----------------------------------");
-    System.out.println("--------------BYE BYE-------------");
-    System.out.println("---------------=D-----------------");
-    System.out.println("----------------------------------");
-        
-    }
-
-    if ((compradosBoni / 3 ) <= (qtdadeComprada + (qtdadeComprada * 0.015))){
+   else { 
     System.out.println("Este cliente possui um desconto de 15%!");
     System.out.println("----------------------------------");
     System.out.println("-----------ATENÇÃO!!!-------------");
@@ -99,14 +108,19 @@ System.out.println("----------------------------------");
     System.out.println("PIS: R$ " + calcularPisboni);
     System.out.println("COFINS: R$ " + calcularCofinsboni);
     System.out.println("TOTAL Imposto: R$ " + totalImpostoboni);
-    System.out.println("TOTAL Mercadoria Bonificada: R$ " + calcularTotalboni);
-    //    System.out.println("TOTAL Bonificação: R$ " + total - totalBoni); //
+    System.out.println("TOTAL Bonificação: R$ " + boni);
     System.out.println("TOTAL: R$ " + totalBoni);
+   }
     }
-else { 
-System.out.println("Este cliente não possui bonificação disponível!");
-}
+         else {
+    System.out.println("----------------------------------");
+    System.out.println("--------------BYE BYE-------------");
+    System.out.println("---------------=D-----------------");
+    System.out.println("----------------------------------");
+        
+    }
  
+
 System.out.println("----------------------------------");
 System.out.println("--------------BYE BYE-------------");
 System.out.println("---------------=D-----------------");
