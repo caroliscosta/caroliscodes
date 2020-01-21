@@ -23,7 +23,7 @@ System.out.println("Digite o nome do cliente: ");
 nome = cliente.nextLine();
 System.out.println("Digite a quantidade comprada: ");
 qtdadeComprada = cliente.nextDouble();
-System.out.println("Deseja imprimir o relatório completo? S/N ");
+System.out.println("Deseja imprimir o relatório? S/N ");
 relatorio = cliente.next().charAt(0);
     
     valorunitario = 4.5;
@@ -56,10 +56,13 @@ if (relatorio == 'S'|relatorio == 's'){
     System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
     System.out.println("TOTAL: R$ " + total);
 }
-else if (relatorio == 'N'|relatorio == 'n') {
-    System.out.println("TOTAL Imposto: R$ " + totalImposto);
-    System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
-    System.out.println("TOTAL: R$ " + total);
+else if (relatorio == 'n'| relatorio == 'N'){
+    System.out.println("----------------------------------");
+    System.out.println("--------------BYE BYE-------------");
+    System.out.println("---------------=D-----------------");
+    System.out.println("----------------------------------");
+    
+    System.exit(0);
 }
 else {
     System.out.println("OPÇÃO INVÁLIDA! Digite novamente a opção (S/N): ");
@@ -75,17 +78,13 @@ if (relatorio == 'S'|relatorio == 's'){
     System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
     System.out.println("TOTAL: R$ " + total);
 }
-else if (relatorio == 'N'|relatorio == 'n') {
-    System.out.println("TOTAL Imposto: R$ " + totalImposto);
-    System.out.println("TOTAL Mercadoria: R$ " + calcularTotal);
-    System.out.println("TOTAL: R$ " + total);
-}
 else {
     System.out.println("----------------------------------");
     System.out.println("--------------BYE BYE-------------");
     System.out.println("---------------=D-----------------");
     System.out.println("----------------------------------");
     
+    System.exit(0);
 }
 //calculo da bonificação//
 //se a quantidade comprada pelo cliente for 15%
