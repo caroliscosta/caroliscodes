@@ -5,11 +5,12 @@ public class Main {
     Scanner cliente = new Scanner (System.in);
 
     String nome;
-    char relatorio, opcaoBoni;
+    char relatorio, opcaoBoni, relatorio2;
     double qtdadeComprada, valorunitario, totalImposto, total, calcularTotal, calcularCofins, calcularIpi, calcularPis, calcularIcms;
     double totalBoni, boni, calcularTotalboni, calcularCofinsboni, calcularIpiboni, calcularPisboni, calcularIcmsboni; 
     double totalImpostoboni;
     float compradosBoni, mediaBoni;
+   
  
     
 System.out.println("----------------------------------");
@@ -42,7 +43,7 @@ relatorio = cliente.next().charAt(0);
     totalImpostoboni = calcularCofinsboni + calcularIpiboni + calcularPisboni + calcularCofinsboni + calcularIcmsboni;
     total = totalImposto + calcularTotal; 
     totalBoni = totalImpostoboni + (calcularTotal - boni); 
-
+    relatorio2 = 0;
 
 //saida//
 
@@ -66,9 +67,9 @@ else if (relatorio == 'n'| relatorio == 'N'){
 }
 else {
     System.out.println("OPÇÃO INVÁLIDA! Digite novamente a opção (S/N): ");
-    relatorio = cliente.next().charAt(0);
-}
-if (relatorio == 'S'|relatorio == 's'){  
+    relatorio2 = cliente.next().charAt(0);
+
+if (relatorio2 == 'S'|relatorio2 == 's'){  
     System.out.println("Nome: " + nome);
     System.out.println("ICMS: R$ " + calcularIcms);
     System.out.println("IPI: R$ " + calcularIpi);
@@ -85,6 +86,7 @@ else {
     System.out.println("----------------------------------");
     
     System.exit(0);
+}
 }
 //calculo da bonificação//
 //se a quantidade comprada pelo cliente for 15%
