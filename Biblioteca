@@ -20,6 +20,7 @@ this.disponivel = disponivel;
 public class Biblioteca {
 
 Livro[] livros;
+int proximoCodigo = 1;
 
 public Biblioteca (int capacidade){
 livros = Livro[capacidade];
