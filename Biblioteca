@@ -1,0 +1,67 @@
+public class Livro {
+
+String genero;
+String autor;
+String titulo;
+int codigo;
+boolean disponivel;
+
+}
+
+public Livro (String genero, String autor, String titulo, int codigo, boolean disponivel){
+this.genero = genero;
+this.autor = autor;
+this.titulo = titulo;
+this.codigo = codigo;
+this.disponivel = disponivel;
+
+}
+
+public class Biblioteca {
+
+Livro[] livros;
+
+public Biblioteca (int capacidade){
+livros = Livro[capacidade];
+
+}
+
+public Livro[] pesquisar(string titulo){
+return null;
+}
+
+public Livro pesquisar (int codigo){
+return null;
+}
+
+public void cadastrarLivro (String titulo, String autor, int genero){
+}
+
+public void emprestarLivro (int codigo){
+}
+
+publc void devolverLivro (int codigo){
+}
+
+
+public class Principal{
+
+public static void main(string[] args){
+while(true){ 
+exibirMenu();
+}
+
+private static void exibirMenu(){
+}
+
+private static void cadastrar(){
+}
+
+private static void pesquisar(){
+}
+
+private static void emprestar(){
+}
+
+private static void devolver(){
+}
