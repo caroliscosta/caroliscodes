@@ -130,6 +130,33 @@ System.out.println("Estoque cheio!")
 }
 
 private static void pesquisar(){
+System.out.println("Escolha um método de pesquisa: ");
+System.out.println("1 - Por título");
+System.out.println("2 - Por código");
+int opcao = teclado.nextInt();
+teclado.nextLine();
+
+if(opcao == 1){
+System.out.println("Digite o titulo do livro: ");
+String titulo = teclado.nextLine();
+Livro[] livros = biblioteca.pesquisar(titulo);
+
+if(livros == null){
+System.out.println("Nenhum livro encontrado com este título.");
+}
+else{
+System.out.println("Livros encontrados");
+for(int = i; i < livros.lenght; i++);
+
+
+}
+}
+else if(opcao == 2){
+
+}
+else {
+System.out.println("Opção inválida!");
+}
 }
 
 private static void emprestar(){
