@@ -35,7 +35,32 @@ public Livro pesquisar (int codigo){
 return null;
 }
 
-public void cadastrarLivro (String titulo, String autor, int genero){
+String converterGenero(int genero){
+switch(genero){
+case 1: return "Romance";
+break;
+case 2: return "AVENTURA";
+break;
+case 3: return "NÃO-FICÇÃO";
+break;
+default: return null;
+break
+}
+}
+
+public boolean cadastrarLivro (String titulo, String autor, int genero){
+Livro livro = new Livro(proximoCodigo, titulo, autor, converterGenero(genero), true);
+
+for (int == 0;i < livros.length; i++){
+if(livros[i] == null){
+livros[i] = livro;
+proximoCodigo++
+return true;
+}
+}
+
+return false;
+
 }
 
 public void emprestarLivro (int codigo){
@@ -66,6 +91,8 @@ System.out.println("4 - Cadastrar");
 System.out.println("5 - Sair");
 
 int opcao = teclado.nextInt(); 
+teclado.nextLine();
+
 switch(opcao){
 case 1: pesquisar();
 break;
@@ -78,10 +105,28 @@ break;
 case 5: System.exit(0);
 break;
 default: System.out.println("Opção inválida!");
-break
+break;
+
 }
 
 private static void cadastrar(){
+System.out.println("Digite o título do livro: ");
+String titulo = teclado.nextLine();
+System.out.println("Digite o nome do autor: ");
+String autor = teclado.nextLine();
+System.out.println("Escolha um gênero: ");
+System.out.println("1 - ROMANCE");
+System.out.println("2 - AVENTURA");
+System.out.println("3 - NÃO-FICÇÃO");
+int genero = teclado.nextInt();
+teclado.nextLine();
+
+boolean sucesso = biblioteca.cadastrarLivro(titulo, autor, genero);
+if(sucesso)
+System.out.println("Livro cadastrado com sucesso!");
+
+else
+System.out.println("Estoque cheio!")
 }
 
 private static void pesquisar(){
