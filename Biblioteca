@@ -93,6 +93,10 @@ static Scanner teclado = new Scanner(System.in);
 
 public static void main(string[] args){
 static biblioteca = new Biblioteca[100];
+biblioteca.cadastrarLivro("O monge e o executivo", "James Hunter", 2);
+biblioteca.cadastrarLivro("Java para iniciantes", "Luiz Duarte", 3);
+biblioteca.cadastrarLivro("Querido John", "Nicholas Sparks", 1);
+
 while(true){ 
 exibirMenu();
 }
@@ -185,7 +189,27 @@ System.out.println("Opção inválida!");
 }
 
 private static void emprestar(){
+Livro livro = pesquisar(codigo);
+if(livro == null)
+return false;
+
+if(livros.disponivel == false)
+return false;
+else {
+livros.disponivel = false;
+return false;
+}
 }
 
 private static void devolver(){
+Livro livro = pesquisar(codigo);
+if(livro == null)
+return false;
+
+if(livros.disponivel == false)
+return false;
+else {
+livros.disponivel = false;
+return false;
+}
 }
