@@ -78,10 +78,32 @@ return false;
 
 }
 
-public void emprestarLivro (int codigo){
+public boolean emprestarLivro (int codigo){
+Livro livro = pesquisar(codigo);
+if(livro == null)
+return false;
+
+if(livros.disponivel == false)
+return false;
+else {
+livros.disponivel = false;
+return false;
+}
+}
 }
 
-publc void devolverLivro (int codigo){
+publc boolean devolverLivro (int codigo){
+Livro livro = pesquisar(codigo);
+if(livro == null)
+return false;
+
+if(livros.disponivel == true)
+return false;
+else {
+livros.disponivel = true;
+return true;
+}
+}
 }
 
 
@@ -189,27 +211,27 @@ System.out.println("Opção inválida!");
 }
 
 private static void emprestar(){
-Livro livro = pesquisar(codigo);
-if(livro == null)
-return false;
+System.out.println("Digite o codigo do livro: ");
+int codigo = teclado.nextInt();
+teclado.nextLine();
+boolean sucesso = biblioteca.emprestar(codigo);
+if(sucesso){
+System.out.println("Livro emprestado com sucesso!);
+else{
+System.out.println{"Não foi possível emprestar o livro!);
+}
 
-if(livros.disponivel == false)
-return false;
-else {
-livros.disponivel = false;
-return false;
-}
-}
 
 private static void devolver(){
-Livro livro = pesquisar(codigo);
-if(livro == null)
-return false;
-
-if(livros.disponivel == false)
-return false;
-else {
-livros.disponivel = false;
-return false;
+System.out.println("Digite o codigo do livro: ");
+int codigo = teclado.nextInt();
+teclado.nextLine();
+boolean sucesso = biblioteca.devolver(codigo);
+if(sucesso){
+System.out.println("Livro devolvido com sucesso!);
+else{
+System.out.println{"Não foi possível devolver o livro!);
 }
+
+
 }
