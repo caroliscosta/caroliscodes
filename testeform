@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form action="respostas.php" method="post">
+	<label>É uma linguagem de programação de script que identiﬁca eventos ocorridos em uma página web. De quem estamos falando?
+		</label><br>
+	<select name="formulario1" required>
+		<option selected value="resp1"> PHP
+			<option value="resp2"> JavaScript
+				<option value="resp3"> MySQL
+	</select><br><br>
+	<label>NÃO é um tipo de dado de uma variável no JavaScript:</label><br>
+	<input type="radio" id="dado1" value="String" checked> String
+	<input type="radio" id="dado2" value="Number"> Number
+	<input type="radio" id="dado3" value="Integer"> Integer <br><br>
+	<label>Selecione abaixo a(s) opção(ões) verdadeira(s) sobre Arrays:</label><br>
+	<input type="checkbox" id="push" required> array.push(): adiciona elementos no array <br>
+	<input type="checkbox" id="pop" required> array.pop(): remove o último elemento do array <br>
+	<input type="checkbox" id="shift" required> array.shift() remove o primeiro elemento do array <br>
+	<input type="checkbox" id="remove">array.remove(): usado para remover elementos do array <br><br>
+	<label>Explique para o que os arrays podem ser utilizados:</label><br>
+	<input type="text" id="discursiva" placeholder="Digite aqui a sua resposta" required><br><br>
+	<label>Verdadeiro, no tipo boolean é:</label><br><br>
+	<input type="password" id="verdadeiro" size="20" minlength="4" maxlength="4" placeholder="Digite aqui a sua resposta" required></input><br>
+	<button type="submit">Enviar</button>
+	<button type="reset" value="Limpar">Limpar</button>
+</form>
+</body>
+</html>
