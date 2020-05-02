@@ -4,7 +4,7 @@
 	<title></title>
 </head>
 <body>
-<form action="respostas.php" method="get" onsubmit="return verificarForm()">
+<form action="respostas.php" method="get" onsubmit="return verificarForm1();return verificarForm2();return verificarForm3();return verificarForm4();return verificarForm5()">
 	<label>É uma linguagem de programação de script que identiﬁca eventos ocorridos em uma página web. De quem estamos falando?
 		</label><br>
 	<select name="formulario1" required="required">
@@ -25,29 +25,31 @@
 	<label>Explique para o que os arrays podem ser utilizados:</label><br>
 	<input type="text" id="discursiva" placeholder="Digite aqui a sua resposta" required><br><br>
 	<label>Verdadeiro, no tipo boolean é:</label><br><br>
-	<input type="password" id="verdadeiro" size="20" minlength="4" maxlength="5" required placeholder="Digite aqui a sua resposta" required></input><br>
+	<input type="password" id="verdadeiro" size="20" minlength="1" maxlength="5" required placeholder="Digite aqui a sua resposta" required></input><br>
 	<button type="submit">Enviar</button>
 	<button type="reset" value="Limpar">Limpar</button>
 </form>
 <script type="text/javascript" charset="UTF-8">
-	function verificarForm(){
+	function verificarForm4(){
 
 	let discursiva1 = document.getElementById("discursiva").value;
-	if (verdadeiro1 == "Utilizados para armazenar múltiplos valores em uma única variável"){
+	if (discursiva1 == "Utilizados para armazenar múltiplos valores em uma única variável"){
 		return true;
 	}
 else
 
 		return false;
+}
 		
-
+function verificarForm5(){
 	let verdadeiro1 = document.getElementById("verdadeiro").value;
 	if (verdadeiro1 == "true"){
 		return true;
 	}
 	
 		return false;
-
+	}
+function verificarForm2(){
 	let string1 = document.getElementByid("dado1").value;
 	let number1 = document.getElementByid("dado2").value;
 	let integer1 = document.getElementByid("dado3").value;
@@ -62,6 +64,14 @@ else
 		return true;
 		
 }
+
+function ficarVermelho(){
+
+	
+}
 </script>
 </body>
 </html>
+
+
+ver https://developer.mozilla.org/pt-BR/docs/Web/CSS/:invalid
