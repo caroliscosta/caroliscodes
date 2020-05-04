@@ -4,74 +4,118 @@
 	<title></title>
 </head>
 <body>
-<form action="respostas.php" method="get" onsubmit="return verificarForm1();return verificarForm2();return verificarForm3();return verificarForm4();return verificarForm5()">
+	<style type="text/css">
+
+	input:focus:invalid {border-color: #ff0000; }
+
+</style>
+<form name="formulario" action="resposta.php" method="get">
 	<label>É uma linguagem de programação de script que identiﬁca eventos ocorridos em uma página web. De quem estamos falando?
 		</label><br>
-	<select name="formulario1" required="required">
-		<option value="resp1"> PHP </option>
-			<option value="resp2"> JavaScript </option>
-				<option value="resp3"> MySQL </option>
-	</select>
+	<input type="radio" required id="resp1" name="resp" name="phppp"> PHP </input>
+			<input type="radio" required id="resp2" name="resp" value="javas"> JavaScript </input>
+				<input required type="radio" name="resp" id="resp3" value="mysql"> MySQL </input>
 	<br><br>
 	<label>NÃO é um tipo de dado de uma variável no JavaScript:</label><br>
-	<input type="radio" id="dado1" name="dado" value="String" checked> String
-	<input type="radio" id="dado2" name="dado" value="Number"> Number
-	<input type="radio" id="dado3" name="dado" value="Integer"> Integer <br><br>
+	<input required type="radio" id="dado1" name="dado"> String
+	<input required type="radio" id="dado2" name="dado"> Number
+	<input required type="radio" id="dado3" name="dado"> Integer <br><br>
 	<label>Selecione abaixo a(s) opção(ões) verdadeira(s) sobre Arrays:</label><br>
-	<input type="checkbox" id="push"> array.push(): adiciona elementos no array <br>
-	<input type="checkbox" id="pop"> array.pop(): remove o último elemento do array <br>
-	<input type="checkbox" id="shift"> array.shift() remove o primeiro elemento do array <br>
-	<input type="checkbox" id="remove">array.remove(): usado para remover elementos do array <br><br>
+	<input type="checkbox" name="checkbox" id="push"> array.push(): adiciona elementos no array <br>
+	<input type="checkbox" name="checkbox" id="pop"> array.pop(): remove o último elemento do array <br>
+	<input type="checkbox" name="checkbox" id="shift"> array.shift() remove o primeiro elemento do array <br>
+	<input type="checkbox" name="checkbox" id="remove">array.remove(): usado para remover elementos do array <br><br>
 	<label>Explique para o que os arrays podem ser utilizados:</label><br>
-	<input type="text" id="discursiva" placeholder="Digite aqui a sua resposta" required><br><br>
+	<input type="text" name="discursiva" id="discursiva" placeholder="Digite aqui a sua resposta" required><br><br>
 	<label>Verdadeiro, no tipo boolean é:</label><br><br>
-	<input type="password" id="verdadeiro" size="20" minlength="1" maxlength="5" required placeholder="Digite aqui a sua resposta" required></input><br>
-	<button type="submit">Enviar</button>
+	<input type="password" id="verdadeiro" name="verdadeiro" size="20" minlength="1" maxlength="5" required placeholder="Digite aqui a sua resposta" required></input><br>
+	<button type="submit" onclick="return verificarForm()">Enviar</button>
 	<button type="reset" value="Limpar">Limpar</button>
 </form>
-<script type="text/javascript" charset="UTF-8">
-	function verificarForm4(){
+<script language="JavaScript" type="text/javascript">
 
-	let discursiva1 = document.getElementById("discursiva").value;
-	if (discursiva1 == "Utilizados para armazenar múltiplos valores em uma única variável"){
-		return true;
-	}
-else
+function verificarForm(){
+	var resp2 = document.getElementById("resp2").value;
+	var resp1 = document.getElementById("resp1").value;
+	var resp3 = document.getElementById("resp3").value;
+	var verdadeiro = document.getElementById("verdadeiro").value;
+	var discursiva1 = document.getElementById("discursiva").value;
+	var integer1 = document.getElementById("dado3").value;
 
+	if (discursiva1 != "Utilizados para armazenar múltiplos valores em uma única variável" ){
+		alert('Digite a resposta correta');
 		return false;
-}
-		
-function verificarForm5(){
-	let verdadeiro1 = document.getElementById("verdadeiro").value;
-	if (verdadeiro1 == "true"){
-		return true;
-	}
-	
-		return false;
-	}
-function verificarForm2(){
-	let string1 = document.getElementByid("dado1").value;
-	let number1 = document.getElementByid("dado2").value;
-	let integer1 = document.getElementByid("dado3").value;
-
-	if (string1.checked){
-		return false;
-	}
-	else if (number1.checked){
-		return false
-	}
-	else
-		return true;
-		
-}
-
-function ficarVermelho(){
 
 	
+	}
+
+	if (verdadeiro != "true"){
+	alert('Digite a resposta correta');
+		return false;
+
+}
+
+ if (document.formulario.resp[0].checked == true){
+    alert('Marque a resposta correta');
+    return false;
+
+  }
+  else if (document.formulario.resp[2].checked == true){
+    alert('Marque a resposta correta');
+    return false;
+}
+ 
+ if (document.formulario.dado[0].checked == true){
+    alert('Marque a resposta correta sobre o tipo de dado');
+    return false;
+
+  }
+  else if (document.formulario.dado[1].checked == true){
+    alert('Marque a resposta correta sobre o tipo de dado');
+    return false;
+}
+
+
+ if(document.getElementByName('checkbox').value == '')
+            {
+                alert('Por favor, selecione ao menos uma alternativa sobre Arrays');
+                return false;
+            }
+
+if (document.formulario.checkbox[3].checked == true){
+alert('Marque a resposta correta sobre Arrays!')
+ return false;
+}
+ else if (document.formulario.checkbox[0].checked==true)&&(document.formulario.checkbox[1].checked==true){
+ 	alert('Há mais opções, continue!')
+ 	return false;
+}
+ else if (document.formulario.checkbox[0].checked==true){
+ 	alert('Há mais opções sobre Arrays, continue!')
+ 	return false;
+}
+else if (document.formulario.checkbox[1].checked==true){
+ 	alert('Há mais opções sobre Arrays, continue!')
+ 	return false;
+ 	}
+
+else if (document.formulario.checkbox[2].checked==true){
+ 	alert('Há mais opções sobre Arrays, continue!')
+ 	return false;
+ 	}
+
+ else if (document.formulario.checkbox[0].checked==true)&&(document.formulario.checkbox[2].checked==true){
+ 	alert('Revise sua resposta sobre Arrays!')
+ 	return false;
+}
+
+/*gabarito: 
+1- javascript
+2- Integer 
+3- opcao 1,2,3 
+4- Utilizados para armazenar múltiplos valores em uma única variável
+5- true */
 }
 </script>
 </body>
 </html>
-
-
-ver https://developer.mozilla.org/pt-BR/docs/Web/CSS/:invalid
